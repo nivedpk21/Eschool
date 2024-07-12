@@ -1,6 +1,9 @@
 ESCHOOL - Student Management Web Application
 
+
 Eschool is a student management web application built using MERN Stack (MongoDB, Express.js, React.js, Node.js). It provides a platform for managing student information.
+
+
 
 
 
@@ -11,6 +14,8 @@ user Authentication: secure registration and login for administrator.
 Dashboard: overview of student data in tabular form.
 
 student management: Add, edit, and delete student profiles.
+
+
 
 
 
@@ -25,6 +30,8 @@ Database: MongoDB with Mongoose ODM.
 Authentication: JSON Web Token
 
 Api integration: Axios
+
+
 
 
 
