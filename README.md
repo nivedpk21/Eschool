@@ -8,6 +8,7 @@ Eschool is a student management web application built using MERN Stack (MongoDB,
 
 
 Features
+--------
 
 user Authentication: secure registration and login for administrator.
 
@@ -20,6 +21,7 @@ student management: Add, edit, and delete student profiles.
 
 
 Technologies Used 
+-----------------
 
 Frontend: React.js, Bootstrap.
 
@@ -36,6 +38,7 @@ Api integration: Axios
 
 
 Installation
+------------
 
 1) clone the repository.
 2) Install dependencies for frontend and backend.
