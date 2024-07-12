@@ -1,0 +1,18 @@
+.signup-div {
+  width: 20%;
+  margin-top: 90px;
+}
+
+@media only screen and (max-width: 576px) {
+  .signup-div {
+    width: 80%;
+    margin-top: 90px;
+  }
+}
+
+@media only screen and (min-width: 577px) and (max-width: 992px) {
+  .signup-div {
+    width: 50%;
+    margin-top: 90px;
+  }
+}

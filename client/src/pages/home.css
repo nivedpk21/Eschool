@@ -1,0 +1,35 @@
+.home-div-1 {
+  background-color: #e1f2f5;
+  height: 90vh;
+  padding-top: 210px;
+}
+.home-text {
+  margin-left: 70px;
+}
+.home-text2 {
+  margin-left: 70px;
+}
+.home-text3 {
+  margin-left: 70px;
+}
+.home-button {
+  margin-left: 70px;
+}
+
+@media only screen and (max-width: 576px) {
+  .home-div-1 {
+    padding-top: 110px;
+  }
+  .home-text {
+    margin-left: 30px;
+  }
+  .home-text2 {
+    margin-left: 30px;
+  }
+  .home-text3 {
+    margin-left: 30px;
+  }
+  .home-button {
+    margin-left: 30px;
+  }
+}

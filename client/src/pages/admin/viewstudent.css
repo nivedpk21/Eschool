@@ -1,0 +1,15 @@
+.student-profile-div {
+  width: 25%;
+}
+
+@media only screen and (max-width: 576px) {
+  .student-profile-div {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 577px) and (max-width: 992px) {
+  .student-profile-div {
+    width: 50%;
+  }
+}

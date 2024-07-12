@@ -1,0 +1,21 @@
+.profile-div {
+  width: 25%;
+  height: 350px;
+  background-color: white;
+}
+.profile-icon-div{
+    height: 110px;
+}
+
+@media only screen and (max-width: 576px) {
+  .profile-div {
+    width: 100%;
+    height: 350px;
+  }
+}
+@media only screen and (min-width: 577px) and (max-width: 992px) {
+  .profile-div {
+    width: 60%;
+    height: 350px;
+  }
+}
