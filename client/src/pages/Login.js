@@ -7,7 +7,6 @@ import toast, { Toaster } from "react-hot-toast";
 export default function Login() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const [isSubmit, setIsSubmit] = useState(false);
   const [formErrors, setFormErrors] = useState({});
   const [inputValues, setInputvalues] = useState({
     username: "",
@@ -38,10 +37,10 @@ export default function Login() {
 
   const submit = (e) => {
     e.preventDefault();
-    setFormErrors(validate(inputValues));
-    setIsSubmit(true);
+    const validationErrors = validate(inputValues);
+    setFormErrors(validationErrors);
 
-    if (Object.keys(formErrors).length === 0 && isSubmit) {
+    if (Object.keys(validationErrors).length === 0) {
       setLoading(true);
       axios
         .post("http://localhost:8000/admin/login", inputValues)
@@ -70,7 +69,7 @@ export default function Login() {
       <div className="mx-auto  p-3  container-fluid  border rounded-3 signup-div login-div">
         <h5 className="text-center">Login</h5>
         <hr />
-        <form>
+        <form onSubmit={submit}>
           <div className="mb-2">
             <label htmlFor="username" className="form-label ">
               Username
@@ -112,7 +111,7 @@ export default function Login() {
             </>
           ) : (
             <>
-              <button type="submit" className="btn btn-primary w-100" onClick={submit}>
+              <button type="submit" className="btn btn-primary w-100">
                 Login
               </button>
             </>

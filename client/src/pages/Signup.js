@@ -6,7 +6,6 @@ import toast, { Toaster } from "react-hot-toast";
 import { NavLink } from "react-router-dom";
 
 export default function Signup() {
-  const [isSubmit, setIsSubmit] = useState(false);
   const [formErrors, setFormErrors] = useState({});
   const [inputValues, setInputvalues] = useState({
     username: "",
@@ -44,10 +43,10 @@ export default function Signup() {
 
   const submit = (e) => {
     e.preventDefault();
-    setFormErrors(validate(inputValues));
-    setIsSubmit(true);
+    const newErrors = validate(inputValues);
+    setFormErrors(newErrors);
 
-    if (Object.keys(formErrors).length === 0 && isSubmit) {
+    if (Object.keys(newErrors).length === 0) {
       axios
         .post("http://localhost:8000/admin/register", inputValues)
         .then((response) => {
@@ -68,7 +67,7 @@ export default function Signup() {
       <div className="mx-auto mt-5 p-3  container-fluid  border rounded-3 signup-div">
         <h5 className="text-center">Sign Up</h5>
         <hr />
-        <form>
+        <form onSubmit={submit}>
           <div className="mb-2">
             <label htmlFor="username" className="form-label ">
               Username
@@ -116,13 +115,13 @@ export default function Signup() {
               onChange={inputChange}
             />
           </div>
-          <button type="submit" className="btn btn-primary w-100" onClick={submit}>
+          <button type="submit" className="btn btn-primary w-100">
             Sign Up
           </button>
         </form>
         <div className="text-center mt-1">
           <span>
-            Already have an account?{" "}
+            Already have an account?
             <NavLink className="text-primary" style={{ textDecoration: "none" }} to="/login">
               Login
             </NavLink>

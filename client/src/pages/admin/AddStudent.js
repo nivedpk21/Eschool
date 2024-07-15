@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function AddStudent() {
   const navigate = useNavigate();
-  const [isSubmit, setIsSubmit] = useState(false);
   const [formErrors, setFormErrors] = useState({});
   const [inputValues, setInputValues] = useState({
     name: "",
@@ -45,9 +44,9 @@ export default function AddStudent() {
 
   const submit = (e) => {
     e.preventDefault();
-    setIsSubmit(true);
-    setFormErrors(validate(inputValues));
-    if (Object.keys(formErrors).length === 0 && isSubmit) {
+    const newErrors = validate(inputValues);
+    setFormErrors(newErrors);
+    if (Object.keys(newErrors).length === 0) {
       axios
         .post("http://localhost:8000/admin/addstudent", inputValues)
         .then((response) => {
@@ -72,7 +71,7 @@ export default function AddStudent() {
           ADD STUDENT
         </p>
         <div className="bg-white border rounded p-5 mx-auto add-student-div">
-          <form>
+          <form onSubmit={submit}>
             <div className="mb-3">
               <label for="exampleInputEmail1" className="form-label">
                 Full Name
@@ -152,7 +151,7 @@ export default function AddStudent() {
               <option value="Other">Other</option>
             </select>
 
-            <button type="submit " className="btn btn-primary w-100" onClick={submit}>
+            <button type="submit " className="btn btn-primary w-100">
               Add
             </button>
           </form>
